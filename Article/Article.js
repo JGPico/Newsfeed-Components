@@ -85,6 +85,18 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Wir mussen herausfinden wie man Toastbrot macht!',
+    date: 'Februar 1er, 2020',
+    firstParagraph: `Ob als Sandwich, Arme Ritter oder als Strammer Max - Toastbrot kann in vielen Formen genutzt werden.
+          Deshalb hier unser bestes Grundrezept fur Toastbrot. Danach wirst du es nie wieder kaufen! `,
+
+    secondParagraph: `Milch und gewurfelte Butter in einem Topf erwarmen. Mehl mit Zucker und Salz in einer Schussel mischen. Hefe daruber brockeln und die lauwarme Milchmischung daruber geben.
+          Mit den Knethaken des Handruhrgerates alles fur 5 Min. zu einem glatten Teig kneten. Teig zugedeckt ca. 30 Min. ruhen lassen. `,
+
+    thirdParagraph: `Du mochtest frisches Toastbrot am Morgen? Den praktischen Brotbackautomaten von Unold kannst du bis zu 13 Stunden vorprogrammieren.
+          Einfach abends alle Zutaten in den Automaten geben und zum Fruhstuck leckeres Toastbrot geniessen.`
   }
 ];
 
@@ -119,7 +131,7 @@ function createComponent(data) {
   p1.textContent = data.firstParagraph;
   p2.textContent = data.secondParagraph;
   p3.textContent = data.thirdParagraph;
-  expButton.textContent = 'Expand Button';
+  expButton.textContent = 'Expand';
 
   expButton.addEventListener('click', () => {
     articleWrap.classList.toggle('article-open');
