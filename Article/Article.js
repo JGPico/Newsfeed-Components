@@ -85,30 +85,86 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Wir mussen herausfinden wie man Toastbrot macht!',
+    date: 'Februar 1er, 2020',
+    firstParagraph: `Ob als Sandwich, Arme Ritter oder als Strammer Max - Toastbrot kann in vielen Formen genutzt werden.
+          Deshalb hier unser bestes Grundrezept fur Toastbrot. Danach wirst du es nie wieder kaufen! `,
+
+    secondParagraph: `Milch und gewurfelte Butter in einem Topf erwarmen. Mehl mit Zucker und Salz in einer Schussel mischen. Hefe daruber brockeln und die lauwarme Milchmischung daruber geben.
+          Mit den Knethaken des Handruhrgerates alles fur 5 Min. zu einem glatten Teig kneten. Teig zugedeckt ca. 30 Min. ruhen lassen. `,
+
+    thirdParagraph: `Du mochtest frisches Toastbrot am Morgen? Den praktischen Brotbackautomaten von Unold kannst du bis zu 13 Stunden vorprogrammieren.
+          Einfach abends alle Zutaten in den Automaten geben und zum Fruhstuck leckeres Toastbrot geniessen.`
   }
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+//  Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+
+function createComponent(data) {
+  // new elements
+  const articleWrap = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const expButton = document.createElement('span');
+
+  // setup structure
+  articleWrap.append(title);
+  articleWrap.append(date);
+  articleWrap.append(p1);
+  articleWrap.append(p2);
+  articleWrap.append(p3);
+  articleWrap.append(expButton);
   
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+  // add classes to elements
+  articleWrap.classList.add('article');
+  date.classList.add('date');
+  expButton.classList.add('expandButton');
 
-    {three separate paragraph elements}
+  // set text content
+  title.textContent = data.title;
+  date.textContent = data.date;
+  p1.textContent = data.firstParagraph;
+  p2.textContent = data.secondParagraph;
+  p3.textContent = data.thirdParagraph;
+  expButton.textContent = 'Expand';
 
-    <span class='expandButton'></span>
-  </div>
+  expButton.addEventListener('click', () => {
+    articleWrap.classList.toggle('article-open');
+  })  
 
-  Hint: You will need to use createElement more than once here!
+  return articleWrap;
+}
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+const articleBit = document.querySelector('.articles');
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+data.map(dataBit => {
+  articleBit.append(createComponent(dataBit));
+})
+  
+//   <div class="article">
+//     <h2>{title of the article}</h2>
+//     <p class="date">{date of the article}</p>
 
-  Step 3: return the entire component.
+//     {three separate paragraph elements}
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+//     <span class='expandButton'></span>
+//   </div>
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+//   Hint: You will need to use createElement more than once here!
 
-*/
+//   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+
+//   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+
+//   Step 3: return the entire component.
+
+//   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+
+//   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+
+
