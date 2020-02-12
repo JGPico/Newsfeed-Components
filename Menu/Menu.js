@@ -39,6 +39,16 @@ const navBar = document.querySelector('.header');
 
 navBar.append(createMenu(menuItems));
 
+navBar.addEventListener('click', () => {
+
+    gsap.from('.menu--open', {
+      duration: 1,
+      x: -350,
+    })
+    
+
+})
+
 
   // <div class="menu">
   //   <ul>
